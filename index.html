@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(bridge.jpg);
+            background-size: cover;
+            color: white;
+        }
+
+        div {
+            margin-top: 120px;
+            border: 2px solid black;
+            width: 350px;
+            height: 250px;
+            margin-left: 450px;
+            /* background-color: bisque;
+            opacity: 0.5; */
+        }
+
+        label {
+            margin-left: 20px;
+            color: white;
+            /* margin-right: 50px; */
+        }
+
+        #a {
+            margin-left: 67px;
+            /* margin-bottom: 50px; */
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            color: black;
+        }
+
+        #b {
+            margin-left: 76px;
+            /* margin-bottom: 50px; */
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        #c {
+            margin-left: 18px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        #e {
+            margin-left: 650px;
+            margin-top: 0px;
+            background-color:pink;
+             border:none;
+            border-radius:5px;
+            position:absolute;
+            top:300px;
+
+            padding:7px;
+
+        }
+
+        #o {
+            margin-left: 50px;
+            margin-top: 20px;
+            color: black;
+            margin-right: 60px;
+            border:none;
+            background-color: pink;
+            border-radius:5px;
+            padding:7px;
+        }
+
+        /* Media Queries */
+
+        /* Small devices (phones, 600px and below) */
+        @media only screen and (max-width: 730px) {
+            div {
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top:10px;
+                height:340px;
+            }
+
+
+            #a,
+            #b,
+            #c,
+            #o {
+                margin-left: 20px;
+                margin-right: 20px;
+                width: calc(100% - 40px);
+            }
+            #o{
+                padding:5px;
+                background-color:pink;
+                outline:none;
+                border-bottom:none;
+                border-right:none;
+                border-radius:20px;
+            }
+            /* #a{
+                width:200px;
+            } */
+             
+            #e {
+                margin-left: calc(50% - 50px);
+                position:absolute;
+                top:400px;
+                left:20px;
+                padding:7px;
+                background-color:pink;
+                border-bottom:none;
+                border-right:none;
+                border-radius:3px;
+
+
+    
+            }
+        }
+
+        /* Medium devices (tablets, 601px to 1024px) */
+        @media only screen and (min-width: 601px) and (max-width: 1024px) {
+            div {
+                width: 60%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            #a,
+            #b,
+            #c,
+            #o {
+                margin-left: 20px;
+                margin-right: 20px;
+                width: 50%x;
+            }
+            #a{
+                margin-top:10px;
+            }
+            label{
+                margin-right:40px;
+            }
+
+            #e {
+                position:absolute;
+                margin-left: calc(50% - 50px);
+                top:290px;
+                left:40px;
+            }
+        }
+
+        /* Large devices (laptops/desktops, 1025px and above) */
+        @media only screen and (min-width: 1025px) {
+            /* No need to change anything for large devices */
+        }
+    </style>
+</head>
+<body>
+<form>
+    <div>
+        <label for="a">UserName</label>
+        <input type="text" id="a"><br>
+        <label for="b">password</label>
+        <input type="password" id="b"><br>
+        <label for="c">Confirm password</label>
+        <input type="password" id="c"><br>
+        <!-- <button id="e">login</button> -->
+        <input type="submit" value="Register" id="o">
+    </div>
+</form>
+<button id="e">login</button>
+
+<script>
+    p = []
+    var a = document.forms
+    a[0].addEventListener("submit", () => {
+        event.preventDefault()
+        u = {
+            username: event.target[0].value,
+            password: event.target[1].value,
+            confirmpassword: event.target[2].value
+        }
+        if (event.target[1].value == event.target[2].value) {
+            var n = JSON.parse(localStorage.getItem("ab"))
+            d = 0
+            for (i = 0; i < n.length; i++) {
+                if (n[i]["username"] == event.target[0].value) {
+                    d = d + 1
+                }
+            }
+            if (d == 0 && event.target[0].value != "" && event.target[1].value != "" && event.target[2].value != "") {
+                p.push(u)
+
+
+                event.target[0].value = ""
+                event.target[1].value = ""
+                event.target[2].value = ""
+                alert("successfully registered you can login now")
+
+
+            } else {
+                if (event.target[0].value != "" && event.target[1].value != "" && event.target[2].value != "") {
+                    event.target[0].value = ""
+                    event.target[1].value = ""
+                    event.target[2].value = ""
+
+                    alert("you are already registered and please login")
+                }
+            }
+
+
+        } else {
+            event.target[0].value = ""
+            event.target[1].value = ""
+            event.target[2].value = ""
+            alert("password  and  confirm password  is not same")
+
+        }
+        localStorage.setItem("ab", JSON.stringify(p))
+
+
+
+    })
+    var f = document.getElementById("e")
+    f.addEventListener("click", () => {
+        window.location.assign("login.html")
+    })
+
+
+</script>
+</body>
+</html>

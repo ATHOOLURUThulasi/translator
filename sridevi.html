@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Translation Example</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+  body{
+        background-image:url("new.jpg");
+        background-repeat: no-repeat;
+        width:100%;
+        background-size:cover;
+    }
+    #rt{
+    /* background-image:url("rrr.jpg"); */
+    background-position:cover;
+    background-repeat: no-repeat;
+  }
+  #a{
+    margin-top:2px;
+    margin-left:50px;
+    margin-right:10px;
+    border-radius:20px;
+    padding:4px;
+    height:25px;
+    border:none;
+    opacity:0.5;
+    outline:none;
+  
+
+  }
+  hr{
+    margin-top:25px;
+    color:blue;
+    width:10px;
+    height:10px;
+  }
+  #p{
+    margin-left:5px;
+    margin-top:30px;
+    border-radius:7px;
+    cursor:pointer;
+    background-color:cyan;
+    opacity:0.7;
+    padding:8px;
+    border:none;
+  
+
+
+  }
+  img{
+     mix-blend-mode:multiply;
+     margin-top:20px;
+     margin-bottom:20px;
+  }
+  #pp{
+    padding:0px;
+    margin:0px;
+    /* background-color: darkgrey;
+     height:150px; */
+  }
+
+  textarea{
+    margin-top:-400px;
+    border:none;
+    float:right;
+    margin-right:450px;
+    margin-bottom:-1000px;
+    opacity:0.5;
+    background-color:pink;
+    padding:40px;
+    /* font-size:30px; */
+ 
+  
+
+  }
+  textarea {
+    border: 1.6px solid blue; 
+    border-radius:20px;
+    padding:30px;
+    /* font-size:16px; */
+    color:black;
+    font-size:16px;
+    position:absolute;
+    left:400px;
+    top:600px;
+
+  }
+
+  textarea:focus {
+    outline: none;
+
+}
+  form{
+    margin-bottom:40px;
+  }
+ 
+ul{
+
+  font-size:17px;
+  margin-left:120px;
+  margin-top:3px;
+  color:white;
+  
+}
+h3{
+  margin-left:10px;
+}
+#b{
+  position:absolute;
+  top:0px;
+  left:880px;
+  top:250px;
+  color:white;
+  font-size:60px;
+  /* border:1px solid white; */
+  width:260px;
+  padding:7px;
+  /* background-color:cadetblue; */
+  opacity:0.7;
+  border-radius:16px;
+
+
+}
+#f{
+  margin-right:400px;;
+}
+@media only screen and (max-width: 730px) {
+  #a {
+    margin-left: 10px;
+    width: calc(100% - 20px);
+    max-width: calc(100% - 20px);
+  }
+
+  #b {
+    left:53%;
+    transform: translateX(-50%);
+    top: 200px;
+     visibility: hidden;
+  }
+
+  textarea {
+    position:absolute;
+    top:800px;
+    width:200px;
+    height:150px;
+    left:120px;
+     
+    margin-left: 10px;
+  
+    max-width: calc(100% - 20px);
+  }
+  input{
+    margin-left:100px;
+  }
+
+  ul {
+    margin-left: 10px;
+  }
+
+  h3 {
+    margin-left: 10px;
+  }
+}
+@media only screen and (min-width: 730px) and (max-width: 1024px) {
+  #a {
+    margin-left: 50px;
+  }
+
+  #b {
+    left:400px;
+    top: 250px;
+
+  }
+
+  textarea {
+    margin-right: 450px;
+    left: 400px;
+    top: 800px;
+    width:300px;
+  }
+}
+
+
+
+
+</style>
+ 
+</head>
+<body> 
+   <div id="pp">
+<form>
+
+  <center><input type="text" size="70px" placeholder="Enter a search word" id="a">
+<input type="submit" value="search" id="p"></center>
+
+
+
+</form>
+</div>
+<div id="rt">
+<h3 style="color:white" font-size="40px">The languages are available here for searching are:</h3>
+<ul>
+  <li>English</li>
+  <li>Spanish</li>
+  <li>French</li>
+  <li>German</li>
+  <li>Chinese</li>
+  <li>Arabic</li>
+  <li>Russian</li>
+  <li>Portuguese</li>
+  <li>Japanese</li>
+  <li>Hindi</li>
+  <li>Bengali</li>
+  <li>Urdu</li>
+  <li>Korean</li>
+  <li>Italian</li>
+  <li>Turkish</li>
+  <li>Dutch</li>
+  <li>Polish</li>
+  <li>Vietnamese</li>
+  <li>Thai</li>
+  <li>Telugu</li>
+  <li>Tamil</li>
+  <li>Malayalam</li>
+  <li>Kannada</li>
+  <li>Gujarati</li>
+  <li>Marathi</li>
+  <li>Punjabi</li>
+  <li>Odia</li>
+  <li>Assamese</li>
+  <li>Maithili</li>
+</ul>
+
+
+
+
+
+<textarea id="resultText" rows="12" cols="40" class=""></textarea>
+<div id="b">𝕃𝕒𝕟𝕘𝕦𝕒𝕘𝕖<br>&nbsp;&nbsp;&nbsp;𝕋𝕣𝕒𝕟𝕤𝕝𝕒𝕥𝕠𝕣</div>
+</div>
+<script>
+var form = document.forms[0];
+  $(document).ready(()=>{
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+     p=a.value
+    u=p.lastIndexOf(" ")
+    console.log(u)
+    console.log(u)
+    q=p.slice(0,u-3)
+    console.log(u-3)
+    w=p.slice(u+1,)
+    var d= [
+    {"name": "English", "code": "en"},
+    {"name": "Spanish", "code": "es"},
+    {"name": "French", "code": "fr"},
+    {"name": "German", "code": "de"},
+    {"name": "Chinese", "code": "zh"},
+    {"name": "Arabic", "code": "ar"},
+    {"name": "Russian", "code": "ru"},
+    {"name": "Portuguese", "code": "pt"},
+    {"name": "Japanese", "code": "ja"},
+    {"name": "Hindi", "code": "hi"},
+    {"name": "Bengali", "code": "bn"},
+    {"name": "Urdu", "code": "ur"},
+    {"name": "Korean", "code": "ko"},
+    {"name": "Italian", "code": "it"},
+    {"name": "Turkish", "code": "tr"},
+    {"name": "Dutch", "code": "nl"},
+    {"name": "Polish", "code": "pl"},
+    {"name": "Vietnamese", "code": "vi"},
+    {"name": "Thai", "code": "th"},
+    {"name": "Telugu", "code": "te"},
+    {"name": "Tamil", "code": "ta"},
+    {"name": "Malayalam", "code": "ml"},
+    {"name": "Kannada", "code": "kn"},
+    {"name": "Gujarati", "code": "gu"},
+    {"name": "Marathi", "code": "mr"},
+    {"name": "Punjabi", "code": "pa"},
+    {"name": "Odia", "code": "or"},
+    {"name": "Assamese", "code": "as"},
+    {"name": "Maithili", "code": "mai"},
+];
+    for(i of d){
+    
+      if(i.name.toLowerCase()==w.toLowerCase()){
+        translate(i.code)
+      }
+    }
+    
+  function translate(y) {
+  var sourceText = q;
+  var sourceLang ='en';
+  var targetLang = y; 
+$.ajax({
+    url: "https://translate.googleapis.com/translate_a/single?client=gtx&sl=" + sourceLang + "&tl=" + targetLang + "&dt=t&q=" + encodeURI(sourceText),
+    method: 'GET', 
+})
+.then(function(response) {
+    console.log(response);
+    $('#resultText').val(response[0][0][0]); 
+})
+.fail(function(xhr, status, error) {
+    console.error(xhr.responseText);
+});
+
+}
+event.target[0].value=" "
+  })
+  })
+</script>
+</body>
+</html>
+

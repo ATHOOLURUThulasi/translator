@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url("tree.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        div {
+            border: 2px solid black;
+            height: 300px;
+            width: 300px;
+            margin-left: 500px;
+            margin-top: 100px;
+        }
+
+        input {
+            margin-left: 30px;
+        }
+
+        button {
+            margin-left: 50px;
+            margin-top: 60px;
+        }
+
+        #p {
+            margin-left: 120px;
+            margin-top: 60px;
+        }
+
+        #w {
+            margin-left: 120px;
+            margin-bottom: 20px;
+        }
+
+        #u {
+            margin-left: 130px;
+            margin-top: -10px;
+        }
+
+        /* Media Queries */
+
+        /* Small devices (phones, 600px and below) */
+        @media only screen and (max-width: 730px) {
+            div {
+                width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            body{
+                height:500px;
+            }
+
+            input {
+                margin-left: 10%;
+                width: 80%;
+            }
+
+            #u {
+                margin-left: 42%;
+                margin-top: 15px;
+                background-color:pink;
+                border:none;
+                border-radius:5px;
+                padding:5px;
+
+            }
+            #w{
+                margin-top:0;
+                margin-top: 35px;
+                margin-left:40%;
+                
+                background-color:pink;
+                border:none;
+                border-radius:5px;
+                padding:5px;
+            }
+        }
+
+        /* Medium devices (tablets, 601px to 1024px) */
+        @media only screen and (min-width: 601px) and (max-width: 1024px) {
+            div {
+                width: 40%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            body{
+                height:500px;
+            }
+
+            input{
+                margin-left: 20%;
+                width:60%;
+            }
+            #w{
+                margin-left:38%;
+                margin-bottom: 20px;
+                margin-top:30px;;
+
+                margin-bottom: 20px;
+                background-color:pink;
+                border:none;
+                border-radius:5px;
+                padding:5px;
+            }
+
+            #u {
+                margin-left: 39%;
+                margin-top: 0;
+                border:none;
+                border-radius:5px;
+                padding:6px;
+                background-color:pink;
+            }
+        }
+
+        /* Large devices (laptops/desktops, 1025px and above) */
+        @media only screen and (min-width: 1025px) {
+            /* No need to change anything for large devices */
+        }
+    </style>
+</head>
+<body>
+<div>
+    <center><h1 style="color:white">Login</h1></center>
+    <form>
+        <input type="text" size="30%" placeholder="enter a username">
+        <br>
+        <br>
+        <br>
+        <input type="password" size="30%" placeholder="Password">
+        <button id="w">submit</button>
+    </form>
+    <button id="u">Back</button>
+</div>
+<script>
+    var t = document.forms;
+    console.log(e);
+    var e = JSON.parse(localStorage.getItem("ab"));
+    t[0].addEventListener("submit", (event) => {
+        event.preventDefault();
+        var b = event.target[0].value;
+        var c = event.target[1].value;
+        d = 0;
+        // var e=JSON.parse(localStorage.getItem("ab"))
+        for (i = 0; i < e.length; i++) {
+            if (e[i]["username"] == b && e[i]["password"] == c) {
+                d = d + 1;
+            }
+        }
+        if (d == 0 && event.target[0].value != "" && event.target[1].value != "") {
+            alert("you are not registered");
+        } else {
+            if (event.target[0].value != "" && event.target[1].value != "") {
+                window.location.assign("sridevi.html");
+            }
+        }
+    });
+    var g = document.getElementById("u");
+
+    g.addEventListener("click", () => {
+        window.location.assign("index.html");
+        window.history.back("index.html");
+    });
+
+</script>
+
+</body>
+</html>
